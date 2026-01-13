@@ -10,7 +10,7 @@ replace (
 	github.com/rancher/eks-operator => github.com/bhartigautam156/eks-operator v0.0.0-20260102073546-c6cae43daf66
 	github.com/rancher/fleet/pkg/apis => github.com/bhartigautam156/fleet/pkg/apis v0.0.0-20260105081654-10f845d48886
 	github.com/rancher/gke-operator => github.com/bhartigautam156/gke-operator v0.0.0-20260102074454-9b11d173d5a7
-	github.com/rancher/rancher/norman => github.com/bhartigautam156/norman v0.0.0-20251230120334-71f332fee56c
+	github.com/rancher/norman => github.com/bhartigautam156/norman v0.0.0-20251230120334-71f332fee56c
 	github.com/rancher/rke => github.com/bhartigautam156/rke v0.0.0-20260105055322-f255d24b8c6a
 	github.com/rancher/wrangler/v3 => github.com/bhartigautam156/wrangler/v3 v3.3.1-0.20251229122518-17d8c43b27b8
 )
