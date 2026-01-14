@@ -178,6 +178,8 @@ github.com/bhartigautam156/rke v0.0.0-20260105055322-f255d24b8c6a h1:ndErHNV2Aa2
 github.com/bhartigautam156/rke v0.0.0-20260105055322-f255d24b8c6a/go.mod h1:HPmC/zpXDtuKXnhR+lUla2CpaejAX5ZOKzdwSYIs6c8=
 github.com/bhartigautam156/shepherd v0.0.0-20260108045959-90c7c77662f8 h1:hm3aof/aTPUMbp86JF5TwkE6ydnEi8aagnFPoxPRJNs=
 github.com/bhartigautam156/shepherd v0.0.0-20260108045959-90c7c77662f8/go.mod h1:jDfU9X4ibCpMyxKgzywBFUfjT4ZUV94S08+NbsKRCC8=
+github.com/bhartigautam156/steve v0.0.0-20260109055430-80bdd22df23b h1:eloAav4TOI1+5aqeLBzMLhuL1+sVfzzaK4JDvIk5+ew=
+github.com/bhartigautam156/steve v0.0.0-20260109055430-80bdd22df23b/go.mod h1:XrNzRlb+pG6iOk+ze+oRviAcK5DZBA8kQwns9q65l40=
 github.com/bhartigautam156/system-upgrade-controller/pkg/apis v0.0.0-20260108045225-ceadd8e4ee44 h1:RJ1CpBSK+Tr85YTytLd6sDyisRiv8ZO2eYZQlF6w+Jk=
 github.com/bhartigautam156/system-upgrade-controller/pkg/apis v0.0.0-20260108045225-ceadd8e4ee44/go.mod h1:FeKiljDHu8C2nOvbFtmkleI4f5ENyLWFWF9uhA/nBTE=
 github.com/bhartigautam156/wrangler/v3 v3.3.1-0.20251229122518-17d8c43b27b8 h1:ZK8BVzgiGJL3yrS2WBQ7E42KXJfYF2nXwd36z11+qLw=
@@ -443,8 +445,6 @@ github.com/hashicorp/golang-lru/v2 v2.0.5 h1:wW7h1TG88eUIJ2i69gaE3uNVtEPIagzhGvH
 github.com/hashicorp/golang-lru/v2 v2.0.5/go.mod h1:QeFd9opnmA6QUJc5vARoKUSoFhyfM2/ZepoAG6RGpeM=
 github.com/huandu/xstrings v1.5.0 h1:2ag3IFq9ZDANvthTwTiqSSZLjDc+BedvHPAp5tJy2TI=
 github.com/huandu/xstrings v1.5.0/go.mod h1:y5/lhBue+AyNmUVz9RLU9xbLR0o4KIIExikq4ovT0aE=
-github.com/iYashMaurya/steve v0.0.0-20260113110812-2bf73787dfb6 h1:F+EJFJkf6CNuQZTo+ibcISUETEHh4rI/8hNekrAkDzU=
-github.com/iYashMaurya/steve v0.0.0-20260113110812-2bf73787dfb6/go.mod h1:t5bymTUG91hkNMtw1rg5IVsz2o8VunVI8aJPUvEetgQ=
 github.com/inconshreveable/mousetrap v1.1.0 h1:wN+x4NVGpMsO7ErUn/mUI3vEoE6Jt13X2s0bqwp9tc8=
 github.com/inconshreveable/mousetrap v1.1.0/go.mod h1:vpF70FUmC8bwa3OWnCshd2FqLfsEA9PFc4w1p2J65bw=
 github.com/jbenet/go-context v0.0.0-20150711004518-d14ea06fba99 h1:BQSFePA1RWJOlocH6Fxy8MmwDt+yVQYULKfN0RoTN8A=
