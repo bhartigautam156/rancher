@@ -18,7 +18,7 @@ replace (
 	github.com/rancher/remotedialer-proxy => github.com/bhartigautam156/remotedialer-proxy v0.0.0-20251231055517-35cf5f5f38c2
 	github.com/rancher/rke => github.com/bhartigautam156/rke v0.0.0-20260105055322-f255d24b8c6a
 	github.com/rancher/shepherd => github.com/bhartigautam156/shepherd v0.0.0-20260108045959-90c7c77662f8
-	github.com/rancher/steve => github.com/bhartigautam156/steve v0.0.0-20260115094035-82eceafbfd91
+	github.com/rancher/steve => github.com/bhartigautam156/steve v0.0.0-20260115182923-a9f668b6b275
 	github.com/rancher/system-upgrade-controller/pkg/apis => github.com/bhartigautam156/system-upgrade-controller/pkg/apis v0.0.0-20260108045225-ceadd8e4ee44
 	github.com/rancher/wrangler/v3 => github.com/bhartigautam156/wrangler/v3 v3.3.1-0.20251229122518-17d8c43b27b8
 )
