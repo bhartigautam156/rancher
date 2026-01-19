@@ -4,6 +4,8 @@ go 1.25.0
 
 toolchain go1.25.4
 
+replace github.com/rancher/steve => github.com/rancher/steve v0.7.36
+
 replace (
 	github.com/crewjam/saml => github.com/rancher/saml v0.4.14-rancher3
 	github.com/docker/distribution => github.com/docker/distribution v2.8.2+incompatible // rancher-machine requires a replace is set
