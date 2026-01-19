@@ -178,6 +178,8 @@ github.com/bhartigautam156/rke v0.0.0-20260105055322-f255d24b8c6a h1:ndErHNV2Aa2
 github.com/bhartigautam156/rke v0.0.0-20260105055322-f255d24b8c6a/go.mod h1:HPmC/zpXDtuKXnhR+lUla2CpaejAX5ZOKzdwSYIs6c8=
 github.com/bhartigautam156/shepherd v0.0.0-20260108045959-90c7c77662f8 h1:hm3aof/aTPUMbp86JF5TwkE6ydnEi8aagnFPoxPRJNs=
 github.com/bhartigautam156/shepherd v0.0.0-20260108045959-90c7c77662f8/go.mod h1:jDfU9X4ibCpMyxKgzywBFUfjT4ZUV94S08+NbsKRCC8=
+github.com/bhartigautam156/steve v0.0.0-20260119111104-27f86ade23b3 h1:wllu1tMBKc57yOHQPm/+h9DB8qo1M0RlCR68JWmz5NY=
+github.com/bhartigautam156/steve v0.0.0-20260119111104-27f86ade23b3/go.mod h1:ya0aPdV1z149Lr3oXDQ87ByZh3BkDMwXYXSDxpdNhKY=
 github.com/bhartigautam156/system-upgrade-controller/pkg/apis v0.0.0-20260108045225-ceadd8e4ee44 h1:RJ1CpBSK+Tr85YTytLd6sDyisRiv8ZO2eYZQlF6w+Jk=
 github.com/bhartigautam156/system-upgrade-controller/pkg/apis v0.0.0-20260108045225-ceadd8e4ee44/go.mod h1:FeKiljDHu8C2nOvbFtmkleI4f5ENyLWFWF9uhA/nBTE=
 github.com/bhartigautam156/wrangler/v3 v3.3.1-0.20251229122518-17d8c43b27b8 h1:ZK8BVzgiGJL3yrS2WBQ7E42KXJfYF2nXwd36z11+qLw=
@@ -619,8 +621,6 @@ github.com/rancher/remotedialer v0.6.0 h1:fUDO3SUuIKuwAz3a+ofARNthzX4xOTispknKk2
 github.com/rancher/remotedialer v0.6.0/go.mod h1:CW6Q8F8IESN05/yl48OSwhVi54nDwVQQriV16zAiGkg=
 github.com/rancher/saml v0.4.14-rancher3 h1:2NN6cPqm9FJeiT25x8+gLHWGdulsEak33cHRkGaJ5v0=
 github.com/rancher/saml v0.4.14-rancher3/go.mod h1:S4+611dxnKt8z/ulbvaJzcgSHsuhjVc1QHNTcr1R7Fw=
-github.com/rancher/steve v0.7.36 h1:Do3aQdAchdgrFQdk5d1A+bdZeVJbfo1vAPFY482OVqQ=
-github.com/rancher/steve v0.7.36/go.mod h1:6JLzvCrnvHtowNfforNolP0VmDzf2csMkRZGddC6Zxo=
 github.com/rancher/wrangler v1.1.2 h1:oXbXo9k7y/H4drUpb4RM1c++vT9O3rpoNEfyusGykiU=
 github.com/rancher/wrangler v1.1.2/go.mod h1:2k9MyhlBdjcutcBGoOJSUAz0HgDAXnMjv81d3n/AaQc=
 github.com/redis/go-redis/extra/rediscmd/v9 v9.0.5 h1:EaDatTxkdHG+U3Bk4EUr+DZ7fOGwTfezUiUJMaIcaho=
