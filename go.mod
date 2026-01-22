@@ -192,7 +192,7 @@ require (
 	oras.land/oras-go/v2 v2.6.0
 	sigs.k8s.io/aws-iam-authenticator v0.6.17
 	sigs.k8s.io/cluster-api v1.10.6
-	sigs.k8s.io/controller-runtime v0.22.4
+	sigs.k8s.io/controller-runtime v0.23.0
 	sigs.k8s.io/structured-merge-diff/v4 v4.6.0
 	sigs.k8s.io/yaml v1.6.0
 )
@@ -270,7 +270,7 @@ require (
 	github.com/skeema/knownhosts v1.3.0 // indirect
 	github.com/std-uritemplate/std-uritemplate/go v0.0.57 // indirect
 	github.com/stoewer/go-strcase v1.3.0 // indirect
-	github.com/tinylib/msgp v1.6.1 // indirect
+	github.com/tinylib/msgp v1.6.3 // indirect
 	github.com/tjfoc/gmsm v1.4.1 // indirect
 	github.com/x448/float16 v0.8.4 // indirect
 	github.com/xanzy/ssh-agent v0.3.3 // indirect
