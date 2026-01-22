@@ -5,22 +5,22 @@ go 1.25.0
 toolchain go1.25.4
 
 replace (
-	github.com/rancher/aks-operator => github.com/bhartigautam156/aks-operator v0.0.0-20260107072254-04a73bc4c320
-	github.com/rancher/ali-operator => github.com/bhartigautam156/ali-operator v0.0.0-20260105083130-a6a93511cfce
-	github.com/rancher/apiserver => github.com/bhartigautam156/apiserver v0.0.0-20251230120015-447e11029750
-	github.com/rancher/dynamiclistener => github.com/bhartigautam156/dynamiclistener v0.0.0-20251230121719-181be4aee6f5
-	github.com/rancher/eks-operator => github.com/bhartigautam156/eks-operator v0.0.0-20260107074747-b3218886dfa9
-	github.com/rancher/fleet/pkg/apis => github.com/bhartigautam156/fleet/pkg/apis v0.0.0-20260108041748-88db5cb9dcb9
-	github.com/rancher/gke-operator => github.com/bhartigautam156/gke-operator v0.0.0-20260108042645-e4f49fd1b501
-	github.com/rancher/lasso => github.com/bhartigautam156/lasso v0.0.0-20251229100131-0f72619beec0
-	github.com/rancher/machine => github.com/bhartigautam156/machine v0.0.0-20260105073636-46721bfcb73b
-	github.com/rancher/norman => github.com/bhartigautam156/norman v0.0.0-20251230120334-71f332fee56c
-	github.com/rancher/remotedialer-proxy => github.com/bhartigautam156/remotedialer-proxy v0.0.0-20251231055517-35cf5f5f38c2
-	github.com/rancher/rke => github.com/bhartigautam156/rke v0.0.0-20260105055322-f255d24b8c6a
-	github.com/rancher/shepherd => github.com/bhartigautam156/shepherd v0.0.0-20260108045959-90c7c77662f8
-	github.com/rancher/steve => github.com/bhartigautam156/steve v0.0.0-20260109055430-80bdd22df23b
-	github.com/rancher/system-upgrade-controller/pkg/apis => github.com/bhartigautam156/system-upgrade-controller/pkg/apis v0.0.0-20260108045225-ceadd8e4ee44
-	github.com/rancher/wrangler/v3 => github.com/bhartigautam156/wrangler/v3 v3.3.1-0.20251229122518-17d8c43b27b8
+	github.com/rancher/aks-operator => github.com/bhartigautam156/aks-operator v0.0.0-20260121085318-7fb26b6bc2a3
+	github.com/rancher/ali-operator => github.com/bhartigautam156/ali-operator v0.0.0-20260121081456-b24d9dfc81bf
+	github.com/rancher/dynamiclistener => github.com/bhartigautam156/dynamiclistener v0.0.0-20260121074716-0c5e7e656ef6
+	github.com/rancher/eks-operator => github.com/bhartigautam156/eks-operator v0.0.0-20260121104759-244256afa79f
+	github.com/rancher/fleet/pkg/apis => github.com/bhartigautam156/fleet/pkg/apis v0.0.0-20260121083231-66179d2f50f2
+	github.com/rancher/gke-operator => github.com/bhartigautam156/gke-operator v0.0.0-20260121103055-f62c3f1ac799
+	github.com/rancher/lasso => github.com/bhartigautam156/lasso v0.0.0-20260121065228-70b2c91143c4
+	github.com/rancher/machine => github.com/bhartigautam156/machine v0.0.0-20260121105631-52daa9119736
+	github.com/rancher/norman => github.com/bhartigautam156/norman v0.0.0-20260121072704-a035b9f8f05b
+	github.com/rancher/rancher/apiserver => github.com/bhartigautam156/apiserver v0.0.0-20260121080657-830ec77018bb
+	github.com/rancher/remotedialer-proxy => github.com/bhartigautam156/remotedialer-proxy v0.0.0-20260121110215-5b3e16e810f9
+	github.com/rancher/rke => github.com/bhartigautam156/rke v0.0.0-20260121111236-2aad6ac3970e
+	github.com/rancher/shepherd => github.com/bhartigautam156/shepherd v0.0.0-20260121113352-27c09fd7ad2d
+	github.com/rancher/steve => github.com/bhartigautam156/steve v0.0.0-20260122041228-77acf36a52e6
+	github.com/rancher/system-upgrade-controller/pkg/apis => github.com/bhartigautam156/system-upgrade-controller/pkg/apis v0.0.0-20260121112405-cebd5457f8da
+	github.com/rancher/wrangler/v3 => github.com/bhartigautam156/wrangler/v3 v3.3.2-0.20260121071658-21d254f6dd17
 )
 
 replace (
@@ -192,7 +192,7 @@ require (
 	oras.land/oras-go/v2 v2.6.0
 	sigs.k8s.io/aws-iam-authenticator v0.6.17
 	sigs.k8s.io/cluster-api v1.10.6
-	sigs.k8s.io/controller-runtime v0.22.4
+	sigs.k8s.io/controller-runtime v0.23.0
 	sigs.k8s.io/structured-merge-diff/v4 v4.6.0
 	sigs.k8s.io/yaml v1.6.0
 )
@@ -258,7 +258,7 @@ require (
 	github.com/microsoft/kiota-serialization-json-go v1.0.8 // indirect
 	github.com/microsoft/kiota-serialization-multipart-go v1.0.0 // indirect
 	github.com/microsoft/kiota-serialization-text-go v1.0.0 // indirect
-	github.com/ncruces/go-strftime v0.1.9 // indirect
+	github.com/ncruces/go-strftime v1.0.0 // indirect
 	github.com/philhofer/fwd v1.2.0 // indirect
 	github.com/pjbgf/sha1cd v0.3.0 // indirect
 	github.com/pkg/browser v0.0.0-20240102092130-5ac0b6a4141c // indirect
@@ -270,7 +270,7 @@ require (
 	github.com/skeema/knownhosts v1.3.0 // indirect
 	github.com/std-uritemplate/std-uritemplate/go v0.0.57 // indirect
 	github.com/stoewer/go-strcase v1.3.0 // indirect
-	github.com/tinylib/msgp v1.6.1 // indirect
+	github.com/tinylib/msgp v1.6.3 // indirect
 	github.com/tjfoc/gmsm v1.4.1 // indirect
 	github.com/x448/float16 v0.8.4 // indirect
 	github.com/xanzy/ssh-agent v0.3.3 // indirect
@@ -280,7 +280,7 @@ require (
 	go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracegrpc v1.34.0 // indirect
 	go.yaml.in/yaml/v2 v2.4.3 // indirect
 	go.yaml.in/yaml/v3 v3.0.4 // indirect
-	golang.org/x/exp v0.0.0-20250620022241-b7579e27df2b // indirect
+	golang.org/x/exp v0.0.0-20251023183803-a4bb9ffd2546 // indirect
 	google.golang.org/genproto/googleapis/api v0.0.0-20250825161204-c5933d9347a5 // indirect
 	google.golang.org/genproto/googleapis/rpc v0.0.0-20251103181224-f26f9409b101 // indirect
 	gopkg.in/evanphx/json-patch.v4 v4.13.0 // indirect
@@ -289,10 +289,10 @@ require (
 	k8s.io/gengo v0.0.0-20250130153323-76c5745d3511 // indirect
 	k8s.io/gengo/v2 v2.0.0-20250922181213-ec3ebc5fd46b // indirect
 	k8s.io/kms v0.35.0 // indirect
-	modernc.org/libc v1.66.10 // indirect
+	modernc.org/libc v1.67.6 // indirect
 	modernc.org/mathutil v1.7.1 // indirect
 	modernc.org/memory v1.11.0 // indirect
-	modernc.org/sqlite v1.40.1 // indirect
+	modernc.org/sqlite v1.44.3 // indirect
 	sigs.k8s.io/randfill v1.0.0 // indirect
 	sigs.k8s.io/structured-merge-diff/v6 v6.3.1 // indirect
 )

@@ -5,14 +5,14 @@ go 1.25.0
 toolchain go1.25.4
 
 replace (
-	github.com/rancher/aks-operator => github.com/bhartigautam156/aks-operator v0.0.0-20260102071655-1ea0d45c928d
-	github.com/rancher/ali-operator => github.com/bhartigautam156/ali-operator v0.0.0-20260105083130-a6a93511cfce
-	github.com/rancher/eks-operator => github.com/bhartigautam156/eks-operator v0.0.0-20260102073546-c6cae43daf66
-	github.com/rancher/fleet/pkg/apis => github.com/bhartigautam156/fleet/pkg/apis v0.0.0-20260105081654-10f845d48886
-	github.com/rancher/gke-operator => github.com/bhartigautam156/gke-operator v0.0.0-20260102074454-9b11d173d5a7
-	github.com/rancher/norman => github.com/bhartigautam156/norman v0.0.0-20251230120334-71f332fee56c
-	github.com/rancher/rke => github.com/bhartigautam156/rke v0.0.0-20260105055322-f255d24b8c6a
-	github.com/rancher/wrangler/v3 => github.com/bhartigautam156/wrangler/v3 v3.3.1-0.20251229122518-17d8c43b27b8
+	github.com/rancher/aks-operator => github.com/bhartigautam156/aks-operator v0.0.0-20260121085318-7fb26b6bc2a3
+	github.com/rancher/ali-operator => github.com/bhartigautam156/ali-operator v0.0.0-20260121081456-b24d9dfc81bf
+	github.com/rancher/eks-operator => github.com/bhartigautam156/eks-operator v0.0.0-20260121104759-244256afa79f
+	github.com/rancher/fleet/pkg/apis => github.com/bhartigautam156/fleet/pkg/apis v0.0.0-20260121083231-66179d2f50f2
+	github.com/rancher/gke-operator => github.com/bhartigautam156/gke-operator v0.0.0-20260121103055-f62c3f1ac799
+	github.com/rancher/norman => github.com/bhartigautam156/norman v0.0.0-20260121072704-a035b9f8f05b
+	github.com/rancher/rke => github.com/bhartigautam156/rke v0.0.0-20260121111236-2aad6ac3970e
+	github.com/rancher/wrangler/v3 => github.com/bhartigautam156/wrangler/v3 v3.3.2-0.20260121071658-21d254f6dd17
 )
 
 replace (
@@ -114,7 +114,7 @@ require (
 	k8s.io/component-base v0.35.0 // indirect
 	k8s.io/klog/v2 v2.130.1 // indirect
 	k8s.io/kube-openapi v0.0.0-20250910181357-589584f1c912 // indirect
-	k8s.io/kubernetes v1.34.1 // indirect
+	k8s.io/kubernetes v1.35.0 // indirect
 	k8s.io/utils v0.0.0-20251002143259-bc988d571ff4 // indirect
 	sigs.k8s.io/json v0.0.0-20250730193827-2d320260d730 // indirect
 	sigs.k8s.io/randfill v1.0.0 // indirect
