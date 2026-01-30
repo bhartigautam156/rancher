@@ -176,8 +176,8 @@ github.com/bhartigautam156/rke v0.0.0-20260121111236-2aad6ac3970e h1:UngOjrAA0AK
 github.com/bhartigautam156/rke v0.0.0-20260121111236-2aad6ac3970e/go.mod h1:wgxp2abOcQ3s6KS5w5q/bWoll67o3sED7XxqWi87XZc=
 github.com/bhartigautam156/shepherd v0.0.0-20260121113352-27c09fd7ad2d h1:CfIGLA+5JSfx37p7Szt2XCMD6HaYFGV94zVoXqJ3zew=
 github.com/bhartigautam156/shepherd v0.0.0-20260121113352-27c09fd7ad2d/go.mod h1:c8JKoWduteyZQGSy3d1EXzQHL0OBKDMy1HMgjm++RjU=
-github.com/bhartigautam156/steve v0.0.0-20260122041228-77acf36a52e6 h1:7E9YcQfoecstrObfUBho+xqbK4LnIeEcrErZQuVpZUo=
-github.com/bhartigautam156/steve v0.0.0-20260122041228-77acf36a52e6/go.mod h1:npAxXV6n8tyRAbl0OK1wDxPJvm5iAvNjYdh5+GB4OVg=
+github.com/bhartigautam156/steve v0.0.0-20260130094334-fef39114469f h1:4AVAaKJpgxlsobOHj4zq3SMwAdAeoHANu3srkaw83XU=
+github.com/bhartigautam156/steve v0.0.0-20260130094334-fef39114469f/go.mod h1:npAxXV6n8tyRAbl0OK1wDxPJvm5iAvNjYdh5+GB4OVg=
 github.com/bhartigautam156/system-upgrade-controller/pkg/apis v0.0.0-20260121112405-cebd5457f8da h1:Qr4xPknTlrDmmcRLwoKyjE8DJ26WuHQxjnQtrJjoWOQ=
 github.com/bhartigautam156/system-upgrade-controller/pkg/apis v0.0.0-20260121112405-cebd5457f8da/go.mod h1:gnqtf1dtF7ctn3rYWuAlEF1ZM1zWneyCb5xZobiNPtk=
 github.com/bhartigautam156/wrangler/v3 v3.3.2-0.20260121071658-21d254f6dd17 h1:qmOsGOuMXtLYJO4F3hyFa1OIR4YOaBGcw7po4WHL1l4=
