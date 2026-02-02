@@ -17,6 +17,7 @@ import (
 	"github.com/sirupsen/logrus"
 	corev1 "k8s.io/api/core/v1"
 	apiequality "k8s.io/apimachinery/pkg/api/equality"
+	"k8s.io/apimachinery/pkg/api/resource"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/labels"
 	"k8s.io/apimachinery/pkg/runtime"
@@ -30,6 +31,10 @@ const (
 	limitRangeAnnotation            = "field.cattle.io/containerDefaultResourceLimit"
 	ResourceQuotaValidatedCondition = "ResourceQuotaValidated"
 	ResourceQuotaInitCondition      = "ResourceQuotaInit"
+)
+
+var (
+	zeroQuantity = resource.MustParse("0")
 )
 
 /*
@@ -510,20 +515,18 @@ func completeLimit(nsLimit *v32.ContainerResourceLimit, projectLimit *v32.Contai
 	return resultingLimit, err
 }
 
-// zeroOutResourceQuotaLimit takes a resource quota limit and a list of resources exceeding the quota,
-// and returns a new quota limit with exceeded resources zeroed out.
+// zeroOutResourceQuotaLimit takes a resource quota limit and a list of
+// resources exceeding the quota, and returns a new quota limit with exceeded
+// resources zeroed out.
 func zeroOutResourceQuotaLimit(limit *v32.ResourceQuotaLimit, exceeded corev1.ResourceList) (*v32.ResourceQuotaLimit, error) {
-	limitMap, err := convert.EncodeToMap(limit)
+	zeroed, err := convertProjectResourceLimitToResourceList(limit)
 	if err != nil {
 		return nil, err
 	}
 
 	for k := range exceeded {
-		resource := string(k)
-		limitMap[resource] = "0"
+		zeroed[k] = zeroQuantity
 	}
 
-	toReturn := &v32.ResourceQuotaLimit{}
-	err = convert.ToObj(limitMap, toReturn)
-	return toReturn, err
+	return convertResourceListToLimit(zeroed)
 }
