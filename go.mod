@@ -18,7 +18,7 @@ replace (
 	github.com/rancher/remotedialer-proxy => github.com/bhartigautam156/remotedialer-proxy v0.0.0-20260121110215-5b3e16e810f9
 	github.com/rancher/rke => github.com/bhartigautam156/rke v0.0.0-20260121111236-2aad6ac3970e
 	github.com/rancher/shepherd => github.com/bhartigautam156/shepherd v0.0.0-20260121113352-27c09fd7ad2d
-	github.com/rancher/steve => github.com/bhartigautam156/steve v0.0.0-20260202074510-31ab06c53f14
+	github.com/rancher/steve => github.com/bhartigautam156/steve v0.0.0-20260202083831-846409afdb64
 	github.com/rancher/system-upgrade-controller/pkg/apis => github.com/bhartigautam156/system-upgrade-controller/pkg/apis v0.0.0-20260121112405-cebd5457f8da
 	github.com/rancher/wrangler/v3 => github.com/bhartigautam156/wrangler/v3 v3.3.2-0.20260121071658-21d254f6dd17
 )
@@ -164,12 +164,12 @@ require (
 	github.com/urfave/cli v1.22.16
 	github.com/vmware/govmomi v0.42.0
 	go.uber.org/mock v0.6.0
-	golang.org/x/crypto v0.45.0
-	golang.org/x/mod v0.30.0
-	golang.org/x/net v0.47.0
+	golang.org/x/crypto v0.47.0
+	golang.org/x/mod v0.32.0
+	golang.org/x/net v0.49.0
 	golang.org/x/oauth2 v0.33.0
 	golang.org/x/sync v0.19.0
-	golang.org/x/text v0.31.0
+	golang.org/x/text v0.33.0
 	google.golang.org/api v0.256.0
 	google.golang.org/grpc v1.76.0
 	gopkg.in/check.v1 v1.0.0-20201130134442-10cb98267c6c
@@ -185,7 +185,7 @@ require (
 	k8s.io/client-go v12.0.0+incompatible
 	k8s.io/helm v2.17.0+incompatible
 	k8s.io/kube-aggregator v0.35.0
-	k8s.io/kube-openapi v0.0.0-20250910181357-589584f1c912
+	k8s.io/kube-openapi v0.0.0-20251125145642-4e65d59e963e
 	k8s.io/kubectl v0.35.0
 	k8s.io/kubernetes v1.35.0
 	k8s.io/utils v0.0.0-20251002143259-bc988d571ff4
@@ -413,10 +413,10 @@ require (
 	go.opentelemetry.io/proto/otlp v1.5.0 // indirect
 	go.uber.org/multierr v1.11.0 // indirect
 	go.uber.org/zap v1.27.1 // indirect
-	golang.org/x/sys v0.38.0 // indirect
-	golang.org/x/term v0.37.0 // indirect
+	golang.org/x/sys v0.40.0 // indirect
+	golang.org/x/term v0.39.0 // indirect
 	golang.org/x/time v0.14.0 // indirect
-	golang.org/x/tools v0.39.0 // indirect
+	golang.org/x/tools v0.41.0 // indirect
 	gomodules.xyz/jsonpatch/v2 v2.5.0 // indirect
 	google.golang.org/protobuf v1.36.10 // indirect
 	gopkg.in/inf.v0 v0.9.1 // indirect
