@@ -5,14 +5,13 @@ go 1.25.0
 toolchain go1.25.4
 
 replace (
-	github.com/rancher/aks-operator => github.com/bhartigautam156/aks-operator v0.0.0-20260121085318-7fb26b6bc2a3
-	github.com/rancher/ali-operator => github.com/bhartigautam156/ali-operator v0.0.0-20260121081456-b24d9dfc81bf
-	github.com/rancher/eks-operator => github.com/bhartigautam156/eks-operator v0.0.0-20260121104759-244256afa79f
-	github.com/rancher/fleet/pkg/apis => github.com/bhartigautam156/fleet/pkg/apis v0.0.0-20260121083231-66179d2f50f2
-	github.com/rancher/gke-operator => github.com/bhartigautam156/gke-operator v0.0.0-20260121103055-f62c3f1ac799
-	github.com/rancher/norman => github.com/bhartigautam156/norman v0.0.0-20260121072704-a035b9f8f05b
-	github.com/rancher/rke => github.com/bhartigautam156/rke v0.0.0-20260121111236-2aad6ac3970e
-	github.com/rancher/wrangler/v3 => github.com/bhartigautam156/wrangler/v3 v3.3.2-0.20260121071658-21d254f6dd17
+	github.com/rancher/aks-operator => github.com/bhartigautam156/aks-operator v0.0.0-20260202110724-01ce1591d51b
+	github.com/rancher/ali-operator => github.com/bhartigautam156/ali-operator v0.0.0-20260202111728-433ba4166236
+	github.com/rancher/eks-operator => github.com/bhartigautam156/eks-operator v0.0.0-20260202111035-765996cb8225
+	github.com/rancher/fleet/pkg/apis => github.com/bhartigautam156/fleet/pkg/apis v0.0.0-20260202105719-b5f76ccd3b7d
+	github.com/rancher/gke-operator => github.com/bhartigautam156/gke-operator v0.0.0-20260202111329-7890f988d513
+	github.com/rancher/norman => github.com/bhartigautam156/norman v0.0.0-20260202103503-700f5a801d5a
+	github.com/rancher/rke => github.com/bhartigautam156/rke v0.0.0-20260202112914-bb453d60746f
 )
 
 replace (
@@ -53,7 +52,7 @@ require (
 	github.com/rancher/gke-operator v1.13.0-rc.3
 	github.com/rancher/norman v0.8.1
 	github.com/rancher/rke v1.8.0
-	github.com/rancher/wrangler/v3 v3.3.1
+	github.com/rancher/wrangler/v3 v3.3.2-rc.1
 	github.com/sirupsen/logrus v1.9.3
 	github.com/stretchr/testify v1.11.1
 	k8s.io/api v0.35.0
@@ -89,7 +88,7 @@ require (
 	github.com/prometheus/client_model v0.6.2 // indirect
 	github.com/prometheus/common v0.66.1 // indirect
 	github.com/prometheus/procfs v0.16.1 // indirect
-	github.com/rancher/lasso v0.2.5 // indirect
+	github.com/rancher/lasso v0.2.6 // indirect
 	github.com/spf13/pflag v1.0.9 // indirect
 	github.com/x448/float16 v0.8.4 // indirect
 	go.opentelemetry.io/otel v1.37.0 // indirect

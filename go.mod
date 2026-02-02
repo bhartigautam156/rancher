@@ -5,22 +5,19 @@ go 1.25.0
 toolchain go1.25.4
 
 replace (
-	github.com/rancher/aks-operator => github.com/bhartigautam156/aks-operator v0.0.0-20260121085318-7fb26b6bc2a3
-	github.com/rancher/ali-operator => github.com/bhartigautam156/ali-operator v0.0.0-20260121081456-b24d9dfc81bf
-	github.com/rancher/dynamiclistener => github.com/bhartigautam156/dynamiclistener v0.0.0-20260121074716-0c5e7e656ef6
-	github.com/rancher/eks-operator => github.com/bhartigautam156/eks-operator v0.0.0-20260121104759-244256afa79f
-	github.com/rancher/fleet/pkg/apis => github.com/bhartigautam156/fleet/pkg/apis v0.0.0-20260121083231-66179d2f50f2
-	github.com/rancher/gke-operator => github.com/bhartigautam156/gke-operator v0.0.0-20260121103055-f62c3f1ac799
-	github.com/rancher/lasso => github.com/bhartigautam156/lasso v0.0.0-20260121065228-70b2c91143c4
-	github.com/rancher/machine => github.com/bhartigautam156/machine v0.0.0-20260121105631-52daa9119736
-	github.com/rancher/norman => github.com/bhartigautam156/norman v0.0.0-20260121072704-a035b9f8f05b
-	github.com/rancher/rancher/apiserver => github.com/bhartigautam156/apiserver v0.0.0-20260121080657-830ec77018bb
-	github.com/rancher/remotedialer-proxy => github.com/bhartigautam156/remotedialer-proxy v0.0.0-20260121110215-5b3e16e810f9
-	github.com/rancher/rke => github.com/bhartigautam156/rke v0.0.0-20260121111236-2aad6ac3970e
-	github.com/rancher/shepherd => github.com/bhartigautam156/shepherd v0.0.0-20260121113352-27c09fd7ad2d
-	github.com/rancher/steve => github.com/bhartigautam156/steve v0.0.0-20260202083831-846409afdb64
-	github.com/rancher/system-upgrade-controller/pkg/apis => github.com/bhartigautam156/system-upgrade-controller/pkg/apis v0.0.0-20260121112405-cebd5457f8da
-	github.com/rancher/wrangler/v3 => github.com/bhartigautam156/wrangler/v3 v3.3.2-0.20260121071658-21d254f6dd17
+	github.com/rancher/aks-operator => github.com/bhartigautam156/aks-operator v0.0.0-20260202110724-01ce1591d51b
+	github.com/rancher/ali-operator => github.com/bhartigautam156/ali-operator v0.0.0-20260202111728-433ba4166236
+	github.com/rancher/dynamiclistener => github.com/bhartigautam156/dynamiclistener v0.0.0-20260202104046-8f2ee40eb9b7
+	github.com/rancher/eks-operator => github.com/bhartigautam156/eks-operator v0.0.0-20260202111035-765996cb8225
+	github.com/rancher/fleet/pkg/apis => github.com/bhartigautam156/fleet/pkg/apis v0.0.0-20260202105719-b5f76ccd3b7d
+	github.com/rancher/gke-operator => github.com/bhartigautam156/gke-operator v0.0.0-20260202111329-7890f988d513
+	github.com/rancher/machine => github.com/bhartigautam156/machine v0.0.0-20260202112452-26efcd7341b5
+	github.com/rancher/norman => github.com/bhartigautam156/norman v0.0.0-20260202103503-700f5a801d5a
+	github.com/rancher/remotedialer-proxy => github.com/bhartigautam156/remotedialer-proxy v0.0.0-20260202112251-cb0797263e30
+	github.com/rancher/rke => github.com/bhartigautam156/rke v0.0.0-20260202112914-bb453d60746f
+	github.com/rancher/shepherd => github.com/bhartigautam156/shepherd v0.0.0-20260202113721-9d6ec0446db0
+	github.com/rancher/steve => github.com/bhartigautam156/steve v0.0.0-20260202122604-46e6fc167c10
+	github.com/rancher/system-upgrade-controller/pkg/apis => github.com/bhartigautam156/system-upgrade-controller/pkg/apis v0.0.0-20260202110153-ec44dda3e90a
 )
 
 replace (
@@ -136,7 +133,7 @@ require (
 	github.com/prometheus/client_model v0.6.2
 	github.com/rancher/aks-operator v1.13.0-rc.4
 	github.com/rancher/ali-operator v1.13.0-rc.2
-	github.com/rancher/apiserver v0.8.1
+	github.com/rancher/apiserver v0.8.2
 	github.com/rancher/channelserver v0.7.0
 	github.com/rancher/dynamiclistener v1.27.5
 	github.com/rancher/eks-operator v1.13.0-rc.4
@@ -144,7 +141,7 @@ require (
 	github.com/rancher/gke-operator v1.13.0-rc.3
 	github.com/rancher/jsonpath v0.0.0-20250620213443-ad24535cf0c1
 	github.com/rancher/kubernetes-provider-detector v0.1.6-0.20240606163014-fcae75779379
-	github.com/rancher/lasso v0.2.5
+	github.com/rancher/lasso v0.2.6
 	github.com/rancher/machine v0.15.0-rancher138
 	github.com/rancher/muchang v0.1.0
 	github.com/rancher/norman v0.8.1
@@ -156,7 +153,7 @@ require (
 	github.com/rancher/steve v0.8.6
 	github.com/rancher/system-upgrade-controller/pkg/apis v0.0.0-20250930163923-f2c9e60b1078
 	github.com/rancher/wrangler v1.1.2
-	github.com/rancher/wrangler/v3 v3.3.1
+	github.com/rancher/wrangler/v3 v3.3.2-rc.1
 	github.com/robfig/cron v1.2.0
 	github.com/sirupsen/logrus v1.9.3
 	github.com/stretchr/testify v1.11.1
