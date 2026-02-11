@@ -8,7 +8,7 @@ replace github.com/rancher/norman => github.com/bhartigautam156/norman v0.0.0-20
 
 require (
 	github.com/rancher/norman v0.8.1
-	k8s.io/apimachinery v0.35.0
+	k8s.io/apimachinery v0.35.1
 )
 
 require (
