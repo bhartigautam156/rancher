@@ -147,6 +147,15 @@ $GOBIN test -v -failfast -timeout 30m -p 1 ./tests/v2/integration/... || {
   exit 1
 }
 
+echo "Waiting up to 5 minutes for downstream cluster to become active"
+./scripts/retry \
+  --timeout 300 \
+  --sleep 5 \
+  --message-interval 12 \
+  --message "Downstream cluster was not active after {{elapsed}} seconds" \
+  --exit-command "dump_rancher_logs" \
+  "kubectl --kubeconfig /etc/rancher/k3s/k3s.yaml get clusters.management.cattle.io -o json 2>/dev/null | grep -q active"
+
 echo Running tox tests
 INT_TESTS_STARTED=true
 cd ./tests/integration

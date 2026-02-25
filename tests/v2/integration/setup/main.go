@@ -80,10 +80,26 @@ func main() {
 		logrus.Fatalf("error instantiating client: %v", err)
 	}
 
-	_, err = k3d.CreateAndImportK3DCluster(client, clusterName, agentImage, "", 1, 0, true)
+	cluster, err := k3d.CreateAndImportK3DCluster(client, clusterName, agentImage, "", 1, 0, true)
 	if err != nil {
 		logrus.Fatalf("error creating and importing a k3d cluster: %v", err)
 	}
+	logrus.Infof("Waiting for cluster %s to become active...", clusterName)
+	err = kwait.PollUntilContextTimeout(context.TODO(), 10*time.Second, 10*time.Minute, true, func(ctx context.Context) (done bool, err error) {
+		c, err := client.Management.Cluster.ByID(cluster.Name)
+		if err != nil {
+			return false, nil
+		}
+		logrus.Infof("Cluster %s state: %s", clusterName, c.State)
+		if c.State == "active" {
+			return true, nil
+		}
+		return false, nil
+	})
+	if err != nil {
+		logrus.Fatalf("Cluster %s never became active: %v", clusterName, err)
+	}
+	logrus.Infof("Cluster %s is active", clusterName)
 
 }
 
