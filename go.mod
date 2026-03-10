@@ -9,7 +9,7 @@ replace (
 	github.com/docker/distribution => github.com/docker/distribution v2.8.2+incompatible // rancher-machine requires a replace is set
 	github.com/knative/pkg => github.com/rancher/pkg v0.0.0-20190514055449-b30ab9de040e
 	github.com/matryer/moq => github.com/rancher/moq v0.0.0-20200712062324-13d1f37d2d77
-	github.com/rancher/eks-operator => github.com/bhartigautam156/eks-operator v0.0.0-20260308132417-f4dda6236eea
+	github.com/rancher/eks-operator => github.com/bhartigautam156/eks-operator v0.0.0-20260310081424-b4a4a4ad1e84
 	github.com/rancher/rancher/pkg/apis => ./pkg/apis
 	github.com/rancher/rancher/pkg/client => ./pkg/client
 	github.com/stretchr/testify => github.com/stretchr/testify v1.10.0
