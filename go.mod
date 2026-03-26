@@ -21,7 +21,7 @@ replace (
 	go.opentelemetry.io/proto/otlp => go.opentelemetry.io/proto/otlp v1.8.0
 	go.qase.io/client => github.com/rancher/qase-go/client v0.0.0-20231114201952-65195ec001fa
 
-	helm.sh/helm/v3 => github.com/rancher/helm/v3 v3.20.0-rancher1
+	helm.sh/helm/v4 => github.com/bhartigautam156/helm/v4 v4.0.0-20260326053309-3f88670f2842
 	k8s.io/api => k8s.io/api v0.35.1
 	k8s.io/apiextensions-apiserver => k8s.io/apiextensions-apiserver v0.35.1
 	k8s.io/apimachinery => k8s.io/apimachinery v0.35.1
@@ -156,10 +156,10 @@ require (
 	gopkg.in/natefinch/lumberjack.v2 v2.2.1
 	gopkg.in/yaml.v2 v2.4.0
 	gopkg.in/yaml.v3 v3.0.1
-	helm.sh/helm/v3 v3.20.0
-	k8s.io/api v0.35.1
+	helm.sh/helm/v4 v4.1.3
+	k8s.io/api v0.35.3
 	k8s.io/apiextensions-apiserver v0.35.1
-	k8s.io/apimachinery v0.35.1
+	k8s.io/apimachinery v0.35.3
 	k8s.io/apiserver v0.35.1
 	k8s.io/cli-runtime v0.35.1
 	k8s.io/client-go v12.0.0+incompatible

@@ -2,8 +2,8 @@ package helm
 
 import (
 	"github.com/sirupsen/logrus"
-	"helm.sh/helm/v3/pkg/action"
-	"helm.sh/helm/v3/pkg/release"
+	"helm.sh/helm/v4/pkg/action"
+	"helm.sh/helm/v4/pkg/release"
 	"k8s.io/cli-runtime/pkg/genericclioptions"
 )
 
