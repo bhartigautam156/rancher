@@ -16,9 +16,9 @@ import (
 
 	v1 "github.com/rancher/rancher/pkg/apis/catalog.cattle.io/v1"
 	gomock "go.uber.org/mock/gomock"
-	action "helm.sh/helm/v3/pkg/action"
-	release "helm.sh/helm/v3/pkg/release"
-	repo "helm.sh/helm/v3/pkg/repo"
+	action "helm.sh/helm/v4/pkg/action"
+	release "helm.sh/helm/v4/pkg/release"
+	repo "helm.sh/helm/v4/pkg/repo"
 	v10 "k8s.io/api/core/v1"
 	user "k8s.io/apiserver/pkg/authentication/user"
 )
