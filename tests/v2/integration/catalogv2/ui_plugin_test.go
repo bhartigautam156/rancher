@@ -22,10 +22,11 @@ import (
 	"github.com/rancher/shepherd/extensions/kubeconfig"
 	"github.com/rancher/shepherd/pkg/api/steve/catalog/types"
 	"github.com/rancher/shepherd/pkg/session"
-	"github.com/sirupsen/logrus"
 	"github.com/stretchr/testify/require"
 	"github.com/stretchr/testify/suite"
 	"helm.sh/helm/v4/pkg/action"
+	"helm.sh/helm/v4/pkg/kube"
+	releasev1 "helm.sh/helm/v4/pkg/release/v1"
 	"k8s.io/apimachinery/pkg/api/errors"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	kwait "k8s.io/apimachinery/pkg/util/wait"
@@ -411,7 +412,7 @@ func (w *UIPluginTest) waitForChart(status rv1.Status, name string, previousVers
 
 func (w *UIPluginTest) uninstallApp(namespace, chartName string) error {
 	var cfg action.Configuration
-	if err := cfg.Init(w.restClientGetter, namespace, "", logrus.Infof); err != nil {
+	if err := cfg.Init(w.restClientGetter, namespace, ""); err != nil {
 		return err
 	}
 	l := action.NewList(&cfg)
@@ -421,11 +422,15 @@ func (w *UIPluginTest) uninstallApp(namespace, chartName string) error {
 	if err != nil {
 		return fmt.Errorf("failed to fetch all releases in the %s namespace: %w", namespace, err)
 	}
-	for _, r := range releases {
+	for _, rel := range releases {
+		r, ok := rel.(*releasev1.Release)
+		if !ok {
+			continue
+		}
 		if r.Chart.Name() == chartName {
 			err = kwait.Poll(10*time.Second, time.Minute, func() (done bool, err error) {
 				act := action.NewUninstall(&cfg)
-				act.Wait = true
+				act.WaitStrategy = kube.StatusWatcherStrategy
 				act.Timeout = time.Minute
 				if _, err = act.Run(r.Name); err != nil {
 					return false, nil

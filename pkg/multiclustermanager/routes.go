@@ -90,7 +90,9 @@ func router(ctx context.Context, localClusterEnabled bool, scaledContext *config
 	logrus.Infof("Configuring public API body limit to %v bytes", publicLimit)
 	limitingHandler := utils.APIBodyLimitingHandler(publicLimit)
 
-	unauthed.Path("/").MatcherFunc(parse.MatchNotBrowser).Handler(managementAPI)
+	unauthed.Path("/").MatcherFunc(func(req *http.Request, m *mux.RouteMatch) bool {
+		return parse.MatchNotBrowser(req)
+	}).Handler(managementAPI)
 	unauthed.Handle("/v3/connect", connectHandler)
 	unauthed.Handle("/v3/connect/register", connectHandler)
 	unauthed.Handle("/v3/import/{token}_{clusterId}.yaml", http.HandlerFunc(clusterImport.ClusterImportHandler))

@@ -18,11 +18,10 @@ import (
 	"github.com/rancher/shepherd/extensions/kubeconfig"
 	"github.com/rancher/shepherd/pkg/session"
 	"github.com/rancher/shepherd/pkg/wait"
-	"github.com/sirupsen/logrus"
 	"github.com/stretchr/testify/require"
 	"github.com/stretchr/testify/suite"
 	"helm.sh/helm/v4/pkg/action"
-	"helm.sh/helm/v4/pkg/release"
+	releasev1 "helm.sh/helm/v4/pkg/release/v1"
 	appv1 "k8s.io/api/apps/v1"
 	k8sErrors "k8s.io/apimachinery/pkg/api/errors"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
@@ -150,7 +149,7 @@ func (w *SystemChartsVersionSuite) TestInstallWebhook() {
 	w.Require().NoError(err)
 
 	// Allow the new release to fully deploy. Otherwise, the client won't find it among current releases.
-	var newRelease *release.Release
+	var newRelease *releasev1.Release
 	err = kwait.Poll(10*time.Second, 2*time.Minute, func() (done bool, err error) {
 		newRelease, err = w.fetchRelease("cattle-system", "rancher-webhook")
 		if err != nil {
@@ -190,7 +189,7 @@ func (w *SystemChartsVersionSuite) TestInstallFleet() {
 	w.Require().NoError(err)
 
 	// Allow the new release to fully deploy. Otherwise, the client won't find it among current releases.
-	var newRelease *release.Release
+	var newRelease *releasev1.Release
 	err = kwait.Poll(10*time.Second, 2*time.Minute, func() (done bool, err error) {
 		newRelease, err = w.fetchRelease("cattle-fleet-system", "fleet")
 		if err != nil {
@@ -209,7 +208,7 @@ func (w *SystemChartsVersionSuite) TestInstallFleet() {
 
 func (w *SystemChartsVersionSuite) uninstallApp(namespace, chartName string) error {
 	var cfg action.Configuration
-	if err := cfg.Init(w.restClientGetter, namespace, "", logrus.Infof); err != nil {
+	if err := cfg.Init(w.restClientGetter, namespace, ""); err != nil {
 		return err
 	}
 	releases, err := w.getReleases(&cfg)
@@ -230,14 +229,26 @@ func (w *SystemChartsVersionSuite) uninstallApp(namespace, chartName string) err
 	return fmt.Errorf("the chartName %s was never installed", chartName)
 }
 
-func (w *SystemChartsVersionSuite) getReleases(cfg *action.Configuration) ([]*release.Release, error) {
+func (w *SystemChartsVersionSuite) getReleases(cfg *action.Configuration) ([]*releasev1.Release, error) {
 	l := action.NewList(cfg)
-	return l.Run()
+	releases, err := l.Run()
+	if err != nil {
+		return nil, err
+	}
+	var result []*releasev1.Release
+	for _, rel := range releases {
+		r, ok := rel.(*releasev1.Release)
+		if !ok {
+			continue
+		}
+		result = append(result, r)
+	}
+	return result, nil
 }
 
-func (w *SystemChartsVersionSuite) fetchRelease(namespace, chartName string) (*release.Release, error) {
+func (w *SystemChartsVersionSuite) fetchRelease(namespace, chartName string) (*releasev1.Release, error) {
 	var cfg action.Configuration
-	if err := cfg.Init(w.restClientGetter, namespace, "", logrus.Infof); err != nil {
+	if err := cfg.Init(w.restClientGetter, namespace, ""); err != nil {
 		return nil, err
 	}
 	releases, err := w.getReleases(&cfg)

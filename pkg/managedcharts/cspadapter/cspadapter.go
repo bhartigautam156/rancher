@@ -5,9 +5,8 @@ package cspadapter
 import (
 	"errors"
 
-	"github.com/sirupsen/logrus"
 	"helm.sh/helm/v4/pkg/action"
-	"helm.sh/helm/v4/pkg/release"
+	release "helm.sh/helm/v4/pkg/release/v1"
 	"k8s.io/cli-runtime/pkg/genericclioptions"
 )
 
@@ -42,7 +41,7 @@ func NewChartUtil(clientGetter genericclioptions.RESTClientGetter) *ChartUtil {
 // GetRelease finds the release for the CSP adapter for a given offering. If not found, returns nil, ErrNotFound.
 func (c *ChartUtil) GetRelease(chartNamespace string, chartName string) (*release.Release, error) {
 	cfg := &action.Configuration{}
-	if err := cfg.Init(c.restClientGetter, chartNamespace, "", logrus.Infof); err != nil {
+	if err := cfg.Init(c.restClientGetter, chartNamespace, ""); err != nil {
 		return nil, err
 	}
 	l := action.NewList(cfg)
@@ -51,8 +50,12 @@ func (c *ChartUtil) GetRelease(chartNamespace string, chartName string) (*releas
 		return nil, err
 	}
 	for _, helmRelease := range releases {
-		if helmRelease.Chart.Name() == chartName {
-			return helmRelease, nil
+		v1rel, ok := helmRelease.(*release.Release)
+		if !ok {
+			continue
+		}
+		if v1rel.Chart.Name() == chartName {
+			return v1rel, nil
 		}
 	}
 	return nil, ErrNotFound

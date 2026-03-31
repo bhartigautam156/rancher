@@ -9,15 +9,21 @@ import (
 
 	"github.com/stretchr/testify/assert"
 	"helm.sh/helm/v4/pkg/action"
-	"helm.sh/helm/v4/pkg/chartutil"
+	"helm.sh/helm/v4/pkg/chart/common"
 	kubefake "helm.sh/helm/v4/pkg/kube/fake"
 	"helm.sh/helm/v4/pkg/registry"
-	"helm.sh/helm/v4/pkg/release"
+	ri "helm.sh/helm/v4/pkg/release"
+	releasecommon "helm.sh/helm/v4/pkg/release/common"
+	release "helm.sh/helm/v4/pkg/release/v1"
 	"helm.sh/helm/v4/pkg/storage"
 	"helm.sh/helm/v4/pkg/storage/driver"
 	"k8s.io/cli-runtime/pkg/genericclioptions"
 	testing2 "k8s.io/kubectl/pkg/cmd/testing"
 )
+
+func init() {
+	gob.Register(&release.Release{})
+}
 
 func TestListReleases(t *testing.T) {
 	t.Parallel()
@@ -28,7 +34,7 @@ func TestListReleases(t *testing.T) {
 		releases         []*release.Release
 		restClientGetter genericclioptions.RESTClientGetter
 		namespace        string
-		runAction        func(l *action.List) ([]*release.Release, error)
+		runAction        func(l *action.List) ([]ri.Releaser, error)
 	}
 
 	type testCase struct {
@@ -38,7 +44,7 @@ func TestListReleases(t *testing.T) {
 		fails bool
 	}
 
-	testRelease := []*release.Release{{Name: "test", Version: 1, Info: &release.Info{Status: release.StatusPendingInstall}}}
+	testRelease := []*release.Release{{Name: "test", Version: 1, Info: &release.Info{Status: releasecommon.StatusPendingInstall}}}
 
 	testCases := []testCase{{
 		name: "name and stateMask matches",
@@ -88,9 +94,11 @@ func TestListReleases(t *testing.T) {
 			releases:         testRelease,
 			restClientGetter: testing2.NewTestFactory(),
 			namespace:        "",
-			runAction: func(l *action.List) ([]*release.Release, error) {
+			runAction: func(l *action.List) ([]ri.Releaser, error) {
 				r, e := l.Run()
-				r[0].Manifest = "random stuff"
+				if v1rel, ok := r[0].(*release.Release); ok {
+					v1rel.Manifest = "random stuff"
+				}
 				return r, e
 			},
 		},
@@ -106,20 +114,17 @@ func TestListReleases(t *testing.T) {
 		mockCfg := &action.Configuration{
 			Releases:       storage.Init(driver.NewMemory()),
 			KubeClient:     &kubefake.FailingKubeClient{PrintingKubeClient: kubefake.PrintingKubeClient{Out: io.Discard}},
-			Capabilities:   chartutil.DefaultCapabilities,
+			Capabilities:   common.DefaultCapabilities,
 			RegistryClient: r,
-			Log: func(format string, v ...interface{}) {
-				t.Helper()
-			},
 		}
 		for _, r := range test.input.releases {
 			asserts.NoError(mockCfg.Releases.Create(r), test.name)
 		}
-		var originalReleases []*release.Release
+		var originalReleases []ri.Releaser
 		var originalErr error
 		client := Client{
 			restClientGetter: test.input.restClientGetter,
-			actRun: func(list *action.List) ([]*release.Release, error) {
+			actRun: func(list *action.List) ([]ri.Releaser, error) {
 				//filter and stateMask should be set
 				asserts.Equal("^"+test.input.name+"$", list.Filter, test.name)
 				asserts.Equal(test.input.stateMask, list.StateMask, test.name)

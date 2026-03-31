@@ -15,23 +15,23 @@ type HelmClient struct {
 }
 
 // ListReleases provides a mock function with given fields: namespace, name, stateMask
-func (_m *HelmClient) ListReleases(namespace string, name string, stateMask action.ListStates) ([]*release.Release, error) {
+func (_m *HelmClient) ListReleases(namespace string, name string, stateMask action.ListStates) ([]release.Releaser, error) {
 	ret := _m.Called(namespace, name, stateMask)
 
 	if len(ret) == 0 {
 		panic("no return value specified for ListReleases")
 	}
 
-	var r0 []*release.Release
+	var r0 []release.Releaser
 	var r1 error
-	if rf, ok := ret.Get(0).(func(string, string, action.ListStates) ([]*release.Release, error)); ok {
+	if rf, ok := ret.Get(0).(func(string, string, action.ListStates) ([]release.Releaser, error)); ok {
 		return rf(namespace, name, stateMask)
 	}
-	if rf, ok := ret.Get(0).(func(string, string, action.ListStates) []*release.Release); ok {
+	if rf, ok := ret.Get(0).(func(string, string, action.ListStates) []release.Releaser); ok {
 		r0 = rf(namespace, name, stateMask)
 	} else {
 		if ret.Get(0) != nil {
-			r0 = ret.Get(0).([]*release.Release)
+			r0 = ret.Get(0).([]release.Releaser)
 		}
 	}
 

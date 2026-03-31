@@ -18,7 +18,7 @@ import (
 	gomock "go.uber.org/mock/gomock"
 	action "helm.sh/helm/v4/pkg/action"
 	release "helm.sh/helm/v4/pkg/release"
-	repo "helm.sh/helm/v4/pkg/repo"
+	repo "helm.sh/helm/v4/pkg/repo/v1"
 	v10 "k8s.io/api/core/v1"
 	user "k8s.io/apiserver/pkg/authentication/user"
 )
@@ -156,10 +156,10 @@ func (m *MockHelmClient) EXPECT() *MockHelmClientMockRecorder {
 }
 
 // ListReleases mocks base method.
-func (m *MockHelmClient) ListReleases(namespace, name string, stateMask action.ListStates) ([]*release.Release, error) {
+func (m *MockHelmClient) ListReleases(namespace, name string, stateMask action.ListStates) ([]release.Releaser, error) {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "ListReleases", namespace, name, stateMask)
-	ret0, _ := ret[0].([]*release.Release)
+	ret0, _ := ret[0].([]release.Releaser)
 	ret1, _ := ret[1].(error)
 	return ret0, ret1
 }

@@ -29,8 +29,10 @@ import (
 	"github.com/rancher/wrangler/v3/pkg/merr"
 	"github.com/sirupsen/logrus"
 	"helm.sh/helm/v4/pkg/action"
-	"helm.sh/helm/v4/pkg/release"
-	"helm.sh/helm/v4/pkg/repo"
+	ri "helm.sh/helm/v4/pkg/release"
+	releasecommon "helm.sh/helm/v4/pkg/release/common"
+	release "helm.sh/helm/v4/pkg/release/v1"
+	"helm.sh/helm/v4/pkg/repo/v1"
 	v1 "k8s.io/api/core/v1"
 	"k8s.io/apimachinery/pkg/api/equality"
 	apierrors "k8s.io/apimachinery/pkg/api/errors"
@@ -65,7 +67,7 @@ type desired struct {
 
 type HelmClient interface {
 	// ListReleases lists all releases in the given namespace that matches the given name and stateMask
-	ListReleases(namespace, name string, stateMask action.ListStates) ([]*release.Release, error)
+	ListReleases(namespace, name string, stateMask action.ListStates) ([]ri.Releaser, error)
 }
 
 type OperationClient interface {
@@ -461,9 +463,13 @@ func (m *Manager) isInstalled(namespace, name, minVersion, desiredVersion string
 // Callers must provide the desired version. If isExact is true, then the resulting value is the desiredVersion, which
 // may result in a forced upgrade or downgrade. Otherwise, the desiredVersion signifies the latest version, which may
 // or may not be installed, depending on the value of the min version.
-func desiredVersionAndValues(releases []*release.Release, minVersion, desiredVersion string, isExact bool, desiredValues map[string]any) (bool, string, map[string]interface{}, error) {
-	for _, r := range releases {
-		if r.Info.Status != release.StatusDeployed {
+func desiredVersionAndValues(releases []ri.Releaser, minVersion, desiredVersion string, isExact bool, desiredValues map[string]any) (bool, string, map[string]interface{}, error) {
+	for _, rel := range releases {
+		r, ok := rel.(*release.Release)
+		if !ok {
+			continue
+		}
+		if r.Info.Status != releasecommon.StatusDeployed {
 			continue
 		}
 		if desiredValues == nil {

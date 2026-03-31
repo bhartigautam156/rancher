@@ -1,6 +1,7 @@
 package ldap
 
 import (
+	"context"
 	"crypto/tls"
 	"time"
 
@@ -15,7 +16,7 @@ type FakeLdapConn struct {
 
 func (m *FakeLdapConn) Start()                     { panic("unimplemented") }
 func (m *FakeLdapConn) StartTLS(*tls.Config) error { panic("unimplemented") }
-func (m *FakeLdapConn) Close()                     { panic("unimplemented") }
+func (m *FakeLdapConn) Close() error               { return nil }
 func (m *FakeLdapConn) IsClosing() bool            { panic("unimplemented") }
 func (m *FakeLdapConn) SetTimeout(time.Duration)   { panic("unimplemented") }
 func (m *FakeLdapConn) Bind(username, password string) error {
@@ -51,4 +52,26 @@ func (m *FakeLdapConn) SearchWithPaging(searchRequest *ldapv3.SearchRequest, pag
 		return m.SearchWithPagingFunc(searchRequest, pagingSize)
 	}
 	return &ldapv3.SearchResult{}, nil
+}
+
+func (m *FakeLdapConn) GetLastError() error { return nil }
+func (m *FakeLdapConn) TLSConnectionState() (tls.ConnectionState, bool) {
+	return tls.ConnectionState{}, false
+}
+func (m *FakeLdapConn) NTLMUnauthenticatedBind(domain, username string) error { panic("unimplemented") }
+func (m *FakeLdapConn) Unbind() error                                         { panic("unimplemented") }
+func (m *FakeLdapConn) Extended(*ldapv3.ExtendedRequest) (*ldapv3.ExtendedResponse, error) {
+	panic("unimplemented")
+}
+func (m *FakeLdapConn) SearchAsync(ctx context.Context, searchRequest *ldapv3.SearchRequest, bufferSize int) ldapv3.Response {
+	panic("unimplemented")
+}
+func (m *FakeLdapConn) DirSync(searchRequest *ldapv3.SearchRequest, flags, maxAttrCount int64, cookie []byte) (*ldapv3.SearchResult, error) {
+	panic("unimplemented")
+}
+func (m *FakeLdapConn) DirSyncAsync(ctx context.Context, searchRequest *ldapv3.SearchRequest, bufferSize int, flags, maxAttrCount int64, cookie []byte) ldapv3.Response {
+	panic("unimplemented")
+}
+func (m *FakeLdapConn) Syncrepl(ctx context.Context, searchRequest *ldapv3.SearchRequest, bufferSize int, mode ldapv3.ControlSyncRequestMode, cookie []byte, reloadHint bool) ldapv3.Response {
+	panic("unimplemented")
 }

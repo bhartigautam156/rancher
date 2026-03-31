@@ -16,7 +16,7 @@ import (
 
 	v1 "github.com/rancher/rancher/pkg/apis/catalog.cattle.io/v1"
 
-	"helm.sh/helm/v4/pkg/release"
+	release "helm.sh/helm/v4/pkg/release/v1"
 )
 
 // isHelm3 checks if the value of the owner key of the received map is equal to helm.
@@ -53,13 +53,13 @@ func fromHelm3ReleaseToRelease(release *release.Release, isNamespaced IsNamespac
 			Notes:       release.Info.Notes,
 		}
 		if !release.Info.FirstDeployed.IsZero() {
-			info.FirstDeployed = &metav1.Time{Time: release.Info.FirstDeployed.Time}
+			info.FirstDeployed = &metav1.Time{Time: release.Info.FirstDeployed}
 		}
 		if !release.Info.LastDeployed.IsZero() {
-			info.LastDeployed = &metav1.Time{Time: release.Info.LastDeployed.Time}
+			info.LastDeployed = &metav1.Time{Time: release.Info.LastDeployed}
 		}
 		if !release.Info.Deleted.IsZero() {
-			info.Deleted = &metav1.Time{Time: release.Info.Deleted.Time}
+			info.Deleted = &metav1.Time{Time: release.Info.Deleted}
 		}
 	}
 

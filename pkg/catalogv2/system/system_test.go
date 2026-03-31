@@ -14,13 +14,15 @@ import (
 	"github.com/rancher/rancher/pkg/catalogv2/system/mocks"
 	"github.com/stretchr/testify/mock"
 	"helm.sh/helm/v4/pkg/action"
-	"helm.sh/helm/v4/pkg/repo"
+	"helm.sh/helm/v4/pkg/repo/v1"
 	v1 "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 
 	"github.com/stretchr/testify/assert"
-	"helm.sh/helm/v4/pkg/chart"
-	"helm.sh/helm/v4/pkg/release"
+	chart "helm.sh/helm/v4/pkg/chart/v2"
+	ri "helm.sh/helm/v4/pkg/release"
+	releasecommon "helm.sh/helm/v4/pkg/release/common"
+	release "helm.sh/helm/v4/pkg/release/v1"
 )
 
 func TestGetIntervalOrDefault(t *testing.T) {
@@ -262,10 +264,10 @@ func TestIsInstalled(t *testing.T) {
 		},
 	}
 
-	releases := []*release.Release{
-		{
+	releases := []ri.Releaser{
+		&release.Release{
 			Name: "rancher-webhook",
-			Info: &release.Info{Status: release.StatusDeployed},
+			Info: &release.Info{Status: releasecommon.StatusDeployed},
 			Chart: &chart.Chart{
 				Metadata: &chart.Metadata{
 					Version: "1.0.0",
@@ -377,10 +379,10 @@ func TestIsInstalledExactVersion(t *testing.T) {
 		},
 	}
 
-	releases := []*release.Release{
-		{
+	releases := []ri.Releaser{
+		&release.Release{
 			Name: "rancher-webhook",
-			Info: &release.Info{Status: release.StatusDeployed},
+			Info: &release.Info{Status: releasecommon.StatusDeployed},
 			Chart: &chart.Chart{
 				Metadata: &chart.Metadata{
 					Version: "1.0.0+up4.5.6-rc.9",
@@ -421,9 +423,9 @@ func TestInstall(t *testing.T) {
 	type testMocks struct {
 		indexOutput               *repo.IndexFile
 		indexError                error
-		isInstalledReleasesOutput []*release.Release
+		isInstalledReleasesOutput []ri.Releaser
 		isInstalledReleasesError  error
-		hasStatusOutput           []*release.Release
+		hasStatusOutput           []ri.Releaser
 		hasStatusError            error
 		upgradeOutput             *catalog.Operation
 		upgradeError              error
@@ -470,8 +472,8 @@ func TestInstall(t *testing.T) {
 			},
 			mocks: testMocks{
 				indexOutput: mockIndex,
-				isInstalledReleasesOutput: []*release.Release{{
-					Info:  &release.Info{Status: release.StatusDeployed},
+				isInstalledReleasesOutput: []ri.Releaser{&release.Release{
+					Info:  &release.Info{Status: releasecommon.StatusDeployed},
 					Chart: &chart.Chart{Metadata: &chart.Metadata{Version: "102.0.0+up1.0.0"}},
 				}},
 			},
@@ -503,8 +505,8 @@ func TestInstall(t *testing.T) {
 						"test-chart": []*repo.ChartVersion{{Metadata: &chart.Metadata{Version: "101.0.0+up1.0.0"}}},
 					},
 				},
-				isInstalledReleasesOutput: []*release.Release{{
-					Info:  &release.Info{Status: release.StatusDeployed},
+				isInstalledReleasesOutput: []ri.Releaser{&release.Release{
+					Info:  &release.Info{Status: releasecommon.StatusDeployed},
 					Chart: &chart.Chart{Metadata: &chart.Metadata{Version: "100.0.0+up1.0.0"}},
 				}},
 			},
@@ -518,7 +520,7 @@ func TestInstall(t *testing.T) {
 			},
 			mocks: testMocks{
 				indexOutput: mockIndex,
-				hasStatusOutput: []*release.Release{{
+				hasStatusOutput: []ri.Releaser{&release.Release{
 					Chart: &chart.Chart{Metadata: &chart.Metadata{Version: "102.0.0+up1.0.0"}},
 				}},
 			},

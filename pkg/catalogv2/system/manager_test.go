@@ -13,9 +13,11 @@ import (
 	"github.com/stretchr/testify/assert"
 	"go.uber.org/mock/gomock"
 	"helm.sh/helm/v4/pkg/action"
-	"helm.sh/helm/v4/pkg/chart"
-	"helm.sh/helm/v4/pkg/release"
-	"helm.sh/helm/v4/pkg/repo"
+	chart "helm.sh/helm/v4/pkg/chart/v2"
+	releasecommon "helm.sh/helm/v4/pkg/release/common"
+	release "helm.sh/helm/v4/pkg/release/v1"
+	ri "helm.sh/helm/v4/pkg/release"
+	"helm.sh/helm/v4/pkg/repo/v1"
 	v1 "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 )
@@ -84,7 +86,7 @@ func TestInstallCharts(t *testing.T) {
 				},
 			},
 			Info: &release.Info{
-				Status: release.StatusDeployed,
+				Status: releasecommon.StatusDeployed,
 			},
 		}
 		fleetChartV2 = release.Release{
@@ -96,7 +98,7 @@ func TestInstallCharts(t *testing.T) {
 				},
 			},
 			Info: &release.Info{
-				Status: release.StatusDeployed,
+				Status: releasecommon.StatusDeployed,
 			},
 		}
 		fleetChartV3 = release.Release{
@@ -108,7 +110,7 @@ func TestInstallCharts(t *testing.T) {
 				},
 			},
 			Info: &release.Info{
-				Status: release.StatusDeployed,
+				Status: releasecommon.StatusDeployed,
 			},
 		}
 		rancherChartV1 = release.Release{
@@ -120,7 +122,7 @@ func TestInstallCharts(t *testing.T) {
 				},
 			},
 			Info: &release.Info{
-				Status: release.StatusDeployed,
+				Status: releasecommon.StatusDeployed,
 			},
 		}
 		aksOperatorChartV1 = release.Release{
@@ -132,7 +134,7 @@ func TestInstallCharts(t *testing.T) {
 				},
 			},
 			Info: &release.Info{
-				Status: release.StatusDeployed,
+				Status: releasecommon.StatusDeployed,
 			},
 		}
 		aksOperatorChartV2 = release.Release{
@@ -144,7 +146,7 @@ func TestInstallCharts(t *testing.T) {
 				},
 			},
 			Info: &release.Info{
-				Status: release.StatusDeployed,
+				Status: releasecommon.StatusDeployed,
 			},
 		}
 		aksOperatorChartV3 = release.Release{
@@ -156,7 +158,7 @@ func TestInstallCharts(t *testing.T) {
 				},
 			},
 			Info: &release.Info{
-				Status: release.StatusDeployed,
+				Status: releasecommon.StatusDeployed,
 			},
 		}
 		fleetRepoV1 = repo.ChartVersion{
@@ -471,9 +473,9 @@ func TestInstallCharts(t *testing.T) {
 					}
 				}
 
-				var foundReleases []*release.Release
+				var foundReleases []ri.Releaser
 				if foundRelease != nil {
-					foundReleases = []*release.Release{foundRelease}
+					foundReleases = []ri.Releaser{foundRelease}
 				}
 				// Call from installCharts and isInstalled
 				mockHelmClient.EXPECT().ListReleases(dc.namespace, dc.releaseName, action.ListDeployed).
